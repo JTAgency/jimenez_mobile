@@ -145,13 +145,15 @@ const VideoBackground = styled.video`
   width: 100%;
   height: 100%;
   min-height: 100%;
+  max-width: 100vw; /* Set maximum width to the width of the viewport */
   z-index: -1;
   opacity: 0.6;
-  object-fit: cover; /* This will zoom in the video to cover the entire container */
+  object-fit: cover;
 
   @media (max-width: 768px) {
     height: 100%;
     width: auto;
+    max-width: 100%; /* Adjust max-width for smaller screens */
   }
 `;
 
