@@ -52,6 +52,7 @@ const HeaderInfo = styled.div`
 
 const ContactInfo = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -75,5 +76,5 @@ const ContactInfo = styled.div`
 const ContactItem = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  margin-bottom: 10px;
 `;

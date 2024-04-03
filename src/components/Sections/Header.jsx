@@ -1,15 +1,86 @@
-import React from "react";
+// import React from "react";
+// import styled, { keyframes } from "styled-components";
+// // Components
+// // import FullButton from "../Buttons/FullButton";
+// // Assets
+// // import HeaderImage from "../../assets/img/header-img.png";
+// // import QuotesIcon from "../../assets/svg/Quotes";
+// // import Dots from "../../assets/svg/Dots";
+// import HeaderVideo from "../../assets/videos/vid2.mp4"; // Import the video file
+
+// export default function Header() {
+  
+//   const handleScroll = () => {
+//     const servicesSection = document.getElementById("services");
+//     if (servicesSection) {
+//       servicesSection.scrollIntoView({ behavior: "smooth" });
+//     }
+//   };
+
+//   return (
+//     <Wrapper id="home" className="container flexSpaceCenter">
+//       <VideoBackground autoPlay muted loop>
+//         <source src={HeaderVideo} type="video/mp4" />
+//         Your browser does not support the video tag.
+//       </VideoBackground>
+//       <MainSide className="flexCenter">
+//         <div>
+//         <StyledH1 className="extraBold font60">JIMINEZ MOBILE</StyledH1>
+//           <HeaderP className="font20 semiBold">
+//             AUTO DETAILING AND TINT
+//           </HeaderP>
+//           <div style={{ marginLeft: '50%' }}>
+//             <DownArrow onClick={handleScroll} />
+//           </div>
+//           {/* <BtnWrapper>
+//             <FullButton title="Get Started" />
+//           </BtnWrapper> */}
+//         </div>
+//       </MainSide>
+//       {/* <RightSide>
+//         <ImageWrapper>
+//           <Img className="radius8" src={HeaderImage} alt="office" style={{zIndex: 9}} />
+//           <QuoteWrapper className="flexCenter darkBg radius8">
+//             <QuotesWrapper>
+//               <QuotesIcon />
+//             </QuotesWrapper>
+//             <div>
+//               <p className="font15 whiteColor">
+//                 <em>Friends, such as we desire, are dreams and fables. Friendship demands the ability to do without it.</em>
+//               </p>
+//               <p className="font13 orangeColor textRight" style={{marginTop: '10px'}}>Ralph Waldo Emerson</p>
+//             </div>
+//           </QuoteWrapper>
+//           <DotsWrapper>
+//             <Dots />
+//           </DotsWrapper>
+//         </ImageWrapper>
+//         <GreyDiv className="lightBg"></GreyDiv>
+//       </RightSide> */}
+//     </Wrapper>
+//   );
+// }
+
+import React, { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
-// Components
-// import FullButton from "../Buttons/FullButton";
-// Assets
-// import HeaderImage from "../../assets/img/header-img.png";
-// import QuotesIcon from "../../assets/svg/Quotes";
-// import Dots from "../../assets/svg/Dots";
-import HeaderVideo from "../../assets/videos/vid2.mp4"; // Import the video file
+import HeaderVideo from "../../assets/videos/vid2.mp4";
 
 export default function Header() {
-  
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    // Ensure video plays inline on iPhone
+    video.setAttribute("playsinline", "");
+
+    // Play the video when component mounts
+    video.play().catch(error => {
+      // Autoplay failed, handle error
+      console.error("Autoplay failed:", error);
+    });
+  }, []);
+
   const handleScroll = () => {
     const servicesSection = document.getElementById("services");
     if (servicesSection) {
@@ -19,48 +90,24 @@ export default function Header() {
 
   return (
     <Wrapper id="home" className="container flexSpaceCenter">
-      <VideoBackground autoPlay muted loop>
+      <VideoBackground autoPlay muted loop ref={videoRef}>
         <source src={HeaderVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </VideoBackground>
       <MainSide className="flexCenter">
         <div>
-        <StyledH1 className="extraBold font60">JIMINEZ MOBILE</StyledH1>
+          <StyledH1 className="extraBold font60">JIMINEZ MOBILE</StyledH1>
           <HeaderP className="font20 semiBold">
             AUTO DETAILING AND TINT
           </HeaderP>
           <div style={{ marginLeft: '50%' }}>
             <DownArrow onClick={handleScroll} />
           </div>
-          {/* <BtnWrapper>
-            <FullButton title="Get Started" />
-          </BtnWrapper> */}
         </div>
       </MainSide>
-      {/* <RightSide>
-        <ImageWrapper>
-          <Img className="radius8" src={HeaderImage} alt="office" style={{zIndex: 9}} />
-          <QuoteWrapper className="flexCenter darkBg radius8">
-            <QuotesWrapper>
-              <QuotesIcon />
-            </QuotesWrapper>
-            <div>
-              <p className="font15 whiteColor">
-                <em>Friends, such as we desire, are dreams and fables. Friendship demands the ability to do without it.</em>
-              </p>
-              <p className="font13 orangeColor textRight" style={{marginTop: '10px'}}>Ralph Waldo Emerson</p>
-            </div>
-          </QuoteWrapper>
-          <DotsWrapper>
-            <Dots />
-          </DotsWrapper>
-        </ImageWrapper>
-        <GreyDiv className="lightBg"></GreyDiv>
-      </RightSide> */}
     </Wrapper>
   );
 }
-
 
 const Wrapper = styled.section`
   padding-top: 80px;
