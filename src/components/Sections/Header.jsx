@@ -25,7 +25,7 @@
 //       </VideoBackground>
 //       <MainSide className="flexCenter">
 //         <div>
-//         <StyledH1 className="extraBold font60">JIMINEZ MOBILE</StyledH1>
+//         <StyledH1 className="extraBold font60">JIMENEZ MOBILE</StyledH1>
 //           <HeaderP className="font20 semiBold">
 //             AUTO DETAILING AND TINT
 //           </HeaderP>
@@ -96,7 +96,7 @@ export default function Header() {
       </VideoBackground>
       <MainSide className="flexCenter">
         <div>
-          <StyledH1 className="extraBold font60">JIMINEZ MOBILE</StyledH1>
+          <StyledH1 className="extraBold font60">JIMENEZ MOBILE</StyledH1>
           <HeaderP className="font20 semiBold">
             AUTO DETAILING AND TINT
           </HeaderP>
